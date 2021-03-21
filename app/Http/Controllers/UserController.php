@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('home', compact('users'));
     }
 
     /**
@@ -24,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -35,19 +39,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'email' => 'email|unique:users|max:255',
+            'password' => 'required|string|confirmed|min:8',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
+        $user = User::create([
+            'name' => $request->name,
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        event(new Registered($user));
+
+        return redirect()->route('home');
+    }   
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +66,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -69,7 +78,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'string|max:255',
+            'role' => 'string|max:255',
+            'email' => 'email|unique:users|max:255',
+            'password' => 'string|confirmed|min:8',
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**
@@ -80,6 +103,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('home');
     }
 }
