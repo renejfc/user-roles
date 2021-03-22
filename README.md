@@ -5,7 +5,7 @@
 
 <div align="center">
   <h3>
-    | <a href="">Project Management Board</a> |
+    | <a href="https://app.milanote.com/1Lnman175x8Mdz?p=iNfse5wDigy">Project Management Board</a> |
 </div>
 
 ## 📋 Table of Contents
