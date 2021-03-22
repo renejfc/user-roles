@@ -8,21 +8,32 @@
     | <a href="https://app.milanote.com/1Lnman175x8Mdz?p=iNfse5wDigy">Project Management Board</a> |
 </div>
 
+----
 ## 📋 Table of Contents
 
 - [Overview](#overview)
 - [Built With](#built-with)
 - [Setup](#setup)
 
-## 🎨 Overview (soon...)
+----
+## 🎨 Overview
+### ***Commands***: 
 
-<!-- <details>
-  <summary>In progress</summary>
-  
-![Dekstop View](#)
+<details>
+  <summary>Create new user</summary>
 
-</details> -->
+![creating a new user in the terminal with prompts](./.README/cmd-create-user.gif)
 
+</details>
+
+<details>
+  <summary>Create new role</summary>
+
+![creating a new user in the terminal with prompts](./.README/cmd-create-role.gif)
+
+</details>
+
+----
 ## 👨‍💻 Built With
 
 - PHP
@@ -30,6 +41,7 @@
   - Blade (Template Engine)
   - Sail (Docker)
 
+----
 ## 👨‍💻 Setup
 > From now we'll use `./vendor/bin/sail` before commands. You can add it as a alias.`alias sail="./vendor/bin/sail"`
 
