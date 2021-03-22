@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('roles.roles');
     }
 
     /**
@@ -35,7 +35,13 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:15'
+        ]);
+
+        Role::create([
+            'title' => $request->title,
+        ]);
     }
 
     /**
@@ -69,7 +75,13 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:15'
+        ]);
+
+        $role->update([
+            'title' => $request->title,
+        ]);
     }
 
     /**
@@ -80,6 +92,6 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
     }
 }
