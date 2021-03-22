@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        UserFactory::times(7)->create();
+        $this->call([
+        UserSeeder::class,
+        RoleSeeder::class,
+        RoleUserSeeder::class
+        ]);
     }
 }
