@@ -11,9 +11,11 @@
 ----
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Built With](#built-with)
-- [Setup](#setup)
+- [Overview](#🎨-overview)
+  - [Commands](#commands)
+  - [API Endpoints](#api-endpoints)
+- [Setup](#👨‍💻-setup)
+- [Built With](#🔮-built-with)
 
 ----
 ## 🎨 Overview
@@ -38,14 +40,6 @@
 - Get all users: `/api/users`
 
 ----
-## 👨‍💻 Built With
-
-- PHP
-- Laravel
-  - Blade (Template Engine)
-  - Sail (Docker)
-
-----
 ## 👨‍💻 Setup
 > From now we'll use `./vendor/bin/sail` before commands. You can add it as a alias.`alias sail="./vendor/bin/sail"`
 
@@ -58,3 +52,12 @@
   - Generate unique app key with `sail artisan key:generate`
   - Run migrations to generate tables `sail artisan migrate`
   - Run seeders to generate fake data `sail artisan db:seed`
+
+----
+## 🔮 Built With
+
+- PHP
+- Laravel
+  - Blade (Template Engine)
+  - Sail (Docker)
+- TailwindCSS
