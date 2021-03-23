@@ -33,6 +33,10 @@
 
 </details>
 
+### ***API Endpoints***:
+- Get all roles with their respective carriers: `/api/roles`
+- Get all users: `/api/users`
+
 ----
 ## 👨‍💻 Built With
 
