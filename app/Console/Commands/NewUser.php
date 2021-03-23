@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 use App\Models\User;
 
 class NewUser extends Command
@@ -61,14 +62,21 @@ class NewUser extends Command
 
     protected function handlePassword()
     {
+        $minPasswordLength = 8;
+
         do {
             $password = $this->secret('Type your password [MIN 8]');
             $confirmation = $this->secret('Confirm your password');
+            $passwordLength = Str::length($password);
 
             if ($password != $confirmation) {
                 $this->error("Password doesn't match! Try again!");
             }
-        } while ($password != $confirmation);
+
+            if ($passwordLength != $minPasswordLength) {
+                $this->error("Password must be at least 8 characters!");
+            }
+        } while ($password != $confirmation || $passwordLength != $minPasswordLength);
 
         return $password;
     }
