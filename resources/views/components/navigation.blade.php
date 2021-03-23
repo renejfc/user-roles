@@ -1,10 +1,17 @@
-<nav x-data="{ open: false }" class="">
-    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-        {{ __('home') }}
-    </x-nav-link>
+@php
+    $user = Auth::user();
+@endphp
 
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit">{{ __('Log out') }}</button>
-    </form>
+<nav {{ $attributes }}>
+    @guest
+        <x-link route="login">login</x-link>
+        <x-link route="register">register</x-link>
+    @endguest
+    @auth
+        <p>{{ $user->name }}</p>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
+    @endauth
 </nav>

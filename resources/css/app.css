@@ -1,3 +1,17 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+    body {
+        @apply text-2xl text-blackless bg-whitesmoke leading-normal
+    }
+
+    h1 {
+        @apply text-5xl leading-normal
+    }
+
+    h2 {
+        @apply text-4xl leading-normal
+    }
+}

@@ -11,14 +11,12 @@
 
        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans">
-        <div class="">
-            <header class="">
-                <x-navigation/>
-            </header>
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+    <body class="grid grid-rows-8 min-h-screen">
+        <header class="flex justify-center row-span-1">
+            <x-navigation class="flex h-full w-9/12 items-center justify-evenly" />
+        </header>
+        <main class="flex justify-center row-span-7 overflow-y-hidden overflow-x-auto">
+            {{ $slot }}
+        </main>
     </body>
 </html>
