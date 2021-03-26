@@ -9,15 +9,6 @@
 </div>
 
 ----
-## 📋 Table of Contents
-
-- [Overview](#🎨-overview)
-  - [Commands](#commands)
-  - [API Endpoints](#api-endpoints)
-- [Setup](#👨‍💻-setup)
-- [Built With](#🔮-built-with)
-
-----
 ## 🎨 Overview
 ### ***Commands***: 
 
